@@ -1,12 +1,6 @@
-# S3-based storage adapter for KeystoneJS
+# Digital Ocean Space storage adapter for KeystoneJS
 
 [![NPM](https://nodei.co/npm/keystone-s3-upload-adapter.png)](https://nodei.co/npm/keystone-s3-upload-adapter/)
-
-### This is an alternative to the official KeystoneJS Adapter for `S3File` Upload. The main issue with that library is that it is based on `knox` which not up to date. So this library is an `aws-sdk` version of the same. The usage is exactly the same as of the original one.
-
-### This also adds support for non US S3 Buckets as `knox` was not able to incorporate all of them.
-
-#### The Usage is exaclty same as that of the official version but with different internals. So users dont have to change their existing code's to use this package.
 
 This adapter is designed to replace the existing `S3File` field in KeystoneJS using the new storage API.
 
@@ -14,9 +8,9 @@ Compatible with Node.js 0.12+
 
 ## Usage
 
-Install Package: 
+Install Package:
 ```
-npm install --save keystone-s3-upload-adapter
+npm install --save keystone-dospace-upload-adapter
 ```
 
 Configure the storage adapter:
@@ -29,6 +23,7 @@ var s3Storage = new keystone.Storage({
         secret: 'secret', // required; defaults to process.env.S3_SECRET
         bucket: 'bucket', // required; defaults to process.env.S3_BUCKET
         region: 'region', // optional; defaults to process.env.S3_REGION, or if that's not specified, us-east-1
+        endpoint: 's3.us-east-1.amazonaws.com' // to use with digitalocean space, alter this endpoint to match with digitalocean space configuration
         path: 'images',
         headers: {
             'x-amz-acl': 'public-read', // add default headers; see below for details

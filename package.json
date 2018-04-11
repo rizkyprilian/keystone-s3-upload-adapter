@@ -1,12 +1,12 @@
 {
-  "name": "keystone-s3-upload-adapter",
-  "version": "1.0.7",
+  "name": "keystone-dospace-upload-adapter",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Danish Kamal",
+  "author": "Rizky Prilian",
   "license": "ISC",
   "dependencies": {
     "keystone-storage-namefunctions": "^1.1.1",
@@ -15,14 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:danish1994/keystone-s3-upload-adapter.git"
+    "url": "git+git@github.com:rizkyprilian/keystone-dospace-upload-adapter.git"
   },
   "keywords": [
     "aws",
     "keystone",
     "keystone-storage",
     "keystonejs",
-    "s3",
+    "digitalocean",
+    "space",
     "storage"
   ]
 }

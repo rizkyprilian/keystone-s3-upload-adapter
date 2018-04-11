@@ -14,20 +14,23 @@ var DEFAULT_OPTIONS = {
     generateFilename: nameFunctions.randomFilename,
 };
 
+DEFAULT_OPTIONS.endpoint = 's3.' + DEFAULT_OPTIONS.region + '.amazonaws.com';
+
 function S3Adapter(options, schema) {
     this.options = assign({}, DEFAULT_OPTIONS, options.s3);
 
     this.client = s3.createClient({
-        maxAsyncS3: 20,     // this is the default 
-        s3RetryCount: 3,    // this is the default 
-        s3RetryDelay: 100, // this is the default 
-        multipartUploadThreshold: 20971520, // this is the default (20 MB) 
+        maxAsyncS3: 20,     // this is the default
+        s3RetryCount: 3,    // this is the default
+        s3RetryDelay: 100, // this is the default
+        multipartUploadThreshold: 20971520, // this is the default (20 MB)
         multipartUploadSize: 15728640, // this is the default (15 MB),
         s3Options: {
             accessKeyId: this.options.key,
-			secretAccessKey: this.options.secret,
-			signatureVersion: 'v4',
-			region: this.options.region
+      			secretAccessKey: this.options.secret,
+      			signatureVersion: 'v4',
+      			region: this.options.region,
+            endpoint: this.options.endpoint,
         }
     })
 
